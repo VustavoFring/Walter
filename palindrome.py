@@ -5,5 +5,5 @@ def palindrome(line):
     else:
         return False
 stroka = 'радар' 
-ans = palindrome(stroka)
-print(ans)
+answ = palindrome(stroka)
+print(answ)
