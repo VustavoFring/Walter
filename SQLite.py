@@ -65,6 +65,15 @@ def update_user_name(cursor, users_id, new_name):
     '''
     result = cursor.execute(command,(new_name, users_id))
 
+def delete_users_by_name(cursor, user_name):
+    command = '''
+    DELETE FROM users
+    WHERE name = ?
+    '''
+    result = cursor.execute(command,(user_name,))
+
+
+
 with sqlite3.connect('data.db') as cursor:
     # курсор - обьект с помощью которого будем выполнять sql запросы
     create_table_users(cursor)
@@ -75,6 +84,8 @@ with sqlite3.connect('data.db') as cursor:
     # add_user(cursor, User(name='Walter',surname='White',gender='male'))
     # add_user(cursor, User(name='Jessy',surname='Pinkman',gender='male'))
     # get_users_list(cursor)
-    get_user(cursor, 3)
-    update_user_name(cursor, 3, 'Hisenberg')
-    get_user(cursor, 3)
+    # get_user(cursor, 3)
+    # update_user_name(cursor, 3, 'Hisenberg')
+    # get_user(cursor, 3)
+    delete_users_by_name(cursor,'Jessy')
+    get_users_list(cursor)
